@@ -18,12 +18,12 @@ public class LoginData {
                    { false,  new User("epam", "")},
                    { false, new User ("", "")},
                    { false, new User ("", "1234")},
-                   { false, new User (StringUtils.repeat("qwerty0987", 10), StringUtils.repeat("QWERTY1234",10))},
+                   /*{ false, new User (StringUtils.repeat("qwerty0987", 10), StringUtils.repeat("QWERTY1234",10))},
                    { false, new User("epam", "12345")},
                    { true, new User ("epam", "1234")},
                    { false, new User ("sldkfjsdlkfjds", "ds;fksd;kfsd;lkf")},
                    { true, new User ("epam", "1234")},
-                   { true, new User("epam", "1234")}
+                   { true, new User("epam", "1234")}*/
 
            };
 

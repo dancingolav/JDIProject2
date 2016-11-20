@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+
+<suite name="TestAll">
+
+
+    <test name="LoginTest">
+        <classes>
+            <class name= "org.mytests.LoginTest" />
+        </classes>
+    </test>
+
+
+
+    <test name="DifferentElementsPage">
+        <classes>
+            <class name= "org.mytests.MetalAndColorsTest" />
+        </classes>
+    </test>
+
+</suite>
+

@@ -6,10 +6,9 @@ import com.epam.jdi.uitests.core.interfaces.base.IElement;
 import com.epam.jdi.uitests.core.interfaces.common.IButton;
 import com.epam.jdi.uitests.core.interfaces.common.IText;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
-import org.mytests.components.UserLogin;
+import org.mytests.components.UserLoginForm;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
@@ -37,7 +36,7 @@ public class HomePage extends WebPage {
     private IText loginFailed;
 
     @FindBy(xpath="//form[@class='form-horizontal']")
-    public UserLogin userLogin;
+    public UserLoginForm userLoginForm;
 
     public boolean isLoginOrLogoutMenuOpen() {
 

@@ -8,7 +8,7 @@ import com.epam.jdi.uitests.core.interfaces.base.IClickable;
         import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
         import org.openqa.selenium.support.FindBy;
 
-public class UserLogin extends Form<User> {
+public class UserLoginForm extends Form<User> {
 
     @FindBy(xpath="//input[@id='Login']")
     private ITextField login;

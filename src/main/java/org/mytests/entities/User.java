@@ -8,9 +8,7 @@ public class User {
 
     public String login = "epam";
     public String password = "1234";
-    public String name = "Name";
-    public String lastName = "Last Name";
-    public String description = "Description";
+
 
     public User() {
     }

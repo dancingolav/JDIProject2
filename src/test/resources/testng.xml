@@ -13,7 +13,7 @@
 
 
 
-    <test name="DifferentElementsPage">
+    <test name="MetalAndColorsTest">
         <classes>
             <class name= "org.mytests.MetalAndColorsTest" />
         </classes>

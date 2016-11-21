@@ -11,4 +11,5 @@ public class MetalsAndColorsPage extends WebPage {
     @FindBy(xpath="//div[@class='main-content-hg']/form[@class='form']")
     public PlateForm plateForm;
 
+
 }

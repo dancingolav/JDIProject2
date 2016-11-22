@@ -16,22 +16,23 @@ import static org.mytests.EpamTestSite.metalsAndColorsPage;
 /**
  * Created by AlexSh on 20.11.2016.
  */
-public class MetalAndColorsTest {
+public class MetalAndColorsTest extends InitTests{
 
-    @Test(priority=3)
     public void prepareEvironmentForMetalAndColorTest() {
-        homePage.open();
+        homePage.isOpened();
         //Set Login Form In Proper State
         homePage.setLoginFormInProperState();
         //Attempt to Login
         homePage.userLoginForm.login(User.DEFAULT_USER);
 
-
     }
 
-    @Test(priority=4, dataProviderClass=PlateData.class, dataProvider="dataforplateform")
+    @Test( dataProviderClass=PlateData.class, dataProvider="dataforplateform")
     public void plateTest(Plate plate) {
-        metalsAndColorsPage.open();
+
+        prepareEvironmentForMetalAndColorTest();
+
+        metalsAndColorsPage.isOpened();
         metalsAndColorsPage.plateForm.submit(plate);
         assertTrue(metalsAndColorsPage.checkCalculate(plate),"The result (sum) is wrong");
         assertTrue(metalsAndColorsPage.checkColors(plate),"The color is wrong");

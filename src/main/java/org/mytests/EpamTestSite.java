@@ -9,9 +9,6 @@ import org.mytests.pages.MetalsAndColorsPage;
 
 import static com.epam.jdi.uitests.web.selenium.elements.composite.CheckPageTypes.CONTAINS;
 
-/**
- * Created by Roman_Iovlev on 8/30/2015.
- */
 @JSite(domain = "https://jdi-framework.github.io/tests/")
 class EpamTestSite extends WebSite {
 

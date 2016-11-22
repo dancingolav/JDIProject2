@@ -1,6 +1,7 @@
 package org.mytests.components;
 
 import com.epam.jdi.uitests.core.interfaces.complex.ICheckList;
+import com.epam.jdi.uitests.web.selenium.elements.complex.CheckList;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import org.mytests.enums.Nature;
 import org.openqa.selenium.support.FindBy;

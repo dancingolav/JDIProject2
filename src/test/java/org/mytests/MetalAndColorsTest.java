@@ -1,13 +1,13 @@
 package org.mytests;
 
-import com.epam.jdi.uitests.core.interfaces.complex.IDropList;
-import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
+import com.epam.web.matcher.junit.Assert;
+import org.mytests.entities.Plate;
 import org.mytests.entities.User;
-import org.mytests.enums.Vegetables;
+import org.mytests.testdata.PlateData;
 import org.testng.annotations.Test;
 
 
-
+import static com.epam.web.matcher.testng.Assert.assertTrue;
 import static org.mytests.EpamTestSite.homePage;
 import static org.mytests.EpamTestSite.metalsAndColorsPage;
 
@@ -19,34 +19,35 @@ import static org.mytests.EpamTestSite.metalsAndColorsPage;
 public class MetalAndColorsTest {
 
     @Test(priority=3)
-    public void beforeMetalAndColorTest() {
+    public void prepareEvironmentForMetalAndColorTest() {
         homePage.open();
         //Set Login Form In Proper State
         homePage.setLoginFormInProperState();
         //Attempt to Login
         homePage.userLoginForm.login(User.DEFAULT_USER);
-        metalsAndColorsPage.open();
+
+
     }
 
-    @Test(priority=4)
-    public void plateTest() {
-        metalsAndColorsPage.plateForm.summary.odds.select("1");
-        metalsAndColorsPage.plateForm.summary.even.select("6");
-        metalsAndColorsPage.plateForm.elements.nature.uncheckAll();
-        metalsAndColorsPage.plateForm.elements.nature.select("Water","Earth");
-        metalsAndColorsPage.plateForm.colors.expand();
-        metalsAndColorsPage.plateForm.colors.select("Green");
-        metalsAndColorsPage.plateForm.metals.expand();
-        metalsAndColorsPage.plateForm.metals.select("Gold");
-        metalsAndColorsPage.plateForm.vegetables.uncheckAll();
-        metalsAndColorsPage.plateForm.vegetables.select("Tomato");
+    @Test(priority=4, dataProviderClass=PlateData.class, dataProvider="dataforplateform")
+    public void plateTest(Plate plate) {
+        metalsAndColorsPage.open();
+        metalsAndColorsPage.plateForm.submit(plate);
+        assertTrue(metalsAndColorsPage.checkCalculate(plate),"The result (sum) is wrong");
+        assertTrue(metalsAndColorsPage.checkColors(plate),"The color is wrong");
+        assertTrue(metalsAndColorsPage.checkMetals(plate),"The metal is wrong");
+        assertTrue(metalsAndColorsPage.checkVegetables(plate),"The vegetables are wrong");
+        assertTrue (metalsAndColorsPage.checkElements(plate),"The elements are wrong");
 
 
-        try {
-            Thread.sleep(9000);
+
+      /*try {
+            Thread.sleep(15000);
         } catch (Exception e) {
 
-        }
+        }*/
+
+
 
     }
 

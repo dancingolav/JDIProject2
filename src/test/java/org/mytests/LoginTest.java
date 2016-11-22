@@ -18,7 +18,7 @@ public class LoginTest extends InitTests {
     }
 
 
-    @Test(priority=2,  dataProviderClass=LoginData.class, dataProvider="dataforlogin")
+    @Test(priority=2,  dataProviderClass=LoginData.class, dataProvider="dataforloginform")
     public void tryLogin(boolean testType, User user) {
 
 

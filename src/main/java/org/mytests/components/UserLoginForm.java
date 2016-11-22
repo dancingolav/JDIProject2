@@ -15,7 +15,7 @@ public class UserLoginForm extends Form<User> {
     @FindBy(xpath="//input[@id='Password']")
     private ITextField password;
     @FindBy(xpath="//button[@class='uui-button dark-blue btn-login'][@type='submit']/span[text()='Enter']")
-    private IButton loginButton;
+    private IButton submit;
 
 
     @Override

@@ -19,16 +19,21 @@ import static org.mytests.EpamTestSite.metalsAndColorsPage;
 public class MetalAndColorsTest extends InitTests{
 
     public void prepareEvironmentForMetalAndColorTest() {
-        homePage.isOpened();
-        //Set Login Form In Proper State
-        homePage.setLoginFormInProperState();
-        //Attempt to Login
-        homePage.userLoginForm.login(User.DEFAULT_USER);
 
+        homePage.isOpened();
+
+        if (!homePage.isLogged()) {
+            //Set Login Form In Proper State
+            homePage.setLoginFormInProperState();
+            //Attempt to Login
+            homePage.userLoginForm.login(User.DEFAULT_USER);
+        }
     }
 
     @Test( dataProviderClass=PlateData.class, dataProvider="dataforplateform")
     public void plateTest(Plate plate) {
+
+
 
         prepareEvironmentForMetalAndColorTest();
 

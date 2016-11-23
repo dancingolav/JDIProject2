@@ -1,6 +1,7 @@
 package org.mytests.pages;
 
 import com.epam.jdi.uitests.core.interfaces.common.IText;
+import com.epam.jdi.uitests.web.selenium.elements.common.Text;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import org.mytests.components.PlateForm;
 import org.mytests.entities.Plate;
@@ -18,17 +19,17 @@ public class MetalsAndColorsPage extends WebPage {
     public PlateForm plateForm;
 
     @FindBy(css = ".summ-res")
-    public IText calculateText;
+    public Text calculateText;
 
     @FindBy(css=".col-res")
-    public IText colorsText;
+    public Text colorsText;
 
 
     @FindBy(css=".met-res")
-    public IText metalsText;
+    public Text metalsText;
 
     @FindBy(css=".sal-res")
-    public IText vegetablesText;
+    public Text vegetablesText;
 
     @FindBy(css=".elem-res")
     public IText elementsText ;

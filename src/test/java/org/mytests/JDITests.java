@@ -37,10 +37,13 @@ public class JDITests extends InitTests {
 
     public void prepareEvironmentForMetalAndColorTest() {
         homePage.isOpened();
-        //Set Login Form In Proper State
-        homePage.setLoginFormInProperState();
-        //Attempt to Login
-        homePage.userLoginForm.login(User.DEFAULT_USER);
+
+        if (!homePage.isLogged()) {
+            //Set Login Form In Proper State
+            homePage.setLoginFormInProperState();
+            //Attempt to Login
+            homePage.userLoginForm.login(User.DEFAULT_USER);
+        }
 
     }
 

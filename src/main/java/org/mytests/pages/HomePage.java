@@ -5,6 +5,10 @@ import com.epam.jdi.uitests.core.interfaces.base.IClickable;
 import com.epam.jdi.uitests.core.interfaces.base.IElement;
 import com.epam.jdi.uitests.core.interfaces.common.IButton;
 import com.epam.jdi.uitests.core.interfaces.common.IText;
+import com.epam.jdi.uitests.web.selenium.elements.base.Clickable;
+import com.epam.jdi.uitests.web.selenium.elements.base.Element;
+import com.epam.jdi.uitests.web.selenium.elements.common.Button;
+import com.epam.jdi.uitests.web.selenium.elements.common.Text;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import org.mytests.components.UserLoginForm;
 import org.openqa.selenium.NoSuchElementException;
@@ -17,23 +21,23 @@ public class HomePage extends WebPage {
 
 
     @FindBy(xpath = "//div[@class='profile-photo']")
-    private IClickable openLoginOrLogoutMenu;
+    private Clickable openLoginOrLogoutMenu;
 
     //LogoutButton
     @FindBy (xpath="//button[@type='submit']/span[text()='Logout']")
-    private IButton logoutButton;
+    private Button logoutButton;
 
     //LoginLogout Menu Open
     @FindBy (xpath="//li[@class='dropdown uui-profile-menu open']")
-    private IElement menuOpen;
+    private Element menuOpen;
 
     //LoginLogout Menu Closed
     @FindBy(xpath=("//li[@class='dropdown uui-profile-menu']"))
-    private IElement menuClosed;
+    private Element menuClosed;
 
     //We will use the message to check that login is failed
     @FindBy(xpath="//span[@class='login-txt'][text()='* Login Faild']")
-    private IText loginFailed;
+    private Text loginFailed;
 
     @FindBy(xpath="//form[@class='form-horizontal']")
     public UserLoginForm userLoginForm;
@@ -77,6 +81,19 @@ public class HomePage extends WebPage {
         catch (StaleElementReferenceException se) {return false;}
         catch (NoSuchElementException ns ) {return false;}
     }
+
+    public boolean isLogged(){
+
+        try  {
+            openLoginOrLogoutMenu.click();
+            return isLoginSucceed();}
+
+        catch (StaleElementReferenceException se) {return false;}
+        catch (NoSuchElementException ns ) {return false;}
+
+
+    }
+
 
 
     public void setLoginFormInProperState() {

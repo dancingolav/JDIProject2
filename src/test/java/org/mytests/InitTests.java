@@ -19,17 +19,17 @@ public class InitTests extends TestNGBase {
         WebSite.init(EpamTestSite.class);
         Verify.getFails();
         logger.info("Run Tests");
-
     }
 
-  /*  @AfterMethod
-    public void tearDown() {
-        Verify.getFails();
-    }*/
+
 
   @AfterSuite(alwaysRun = true)
   public void tearDown()
   {
       killAllRunWebDrivers();
+      Verify.getFails();
+      logger.info("End Tests");
   }
+
+
 }

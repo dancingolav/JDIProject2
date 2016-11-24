@@ -1,6 +1,6 @@
 package org.mytests;
 
-import com.epam.web.matcher.junit.Assert;
+
 import org.mytests.entities.Plate;
 import org.mytests.entities.User;
 import org.mytests.testdata.PlateData;
@@ -45,16 +45,8 @@ public class MetalAndColorsTest extends InitTests{
         assertTrue(metalsAndColorsPage.checkVegetables(plate),"The vegetables are wrong");
         assertTrue (metalsAndColorsPage.checkElements(plate),"The elements are wrong");
 
-
-
-      /*try {
-            Thread.sleep(15000);
-        } catch (Exception e) {
-
-        }*/
-
-
-
     }
+
+
 
 }

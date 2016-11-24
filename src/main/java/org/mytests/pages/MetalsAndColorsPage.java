@@ -3,6 +3,7 @@ package org.mytests.pages;
 import com.epam.jdi.uitests.core.interfaces.common.IText;
 import com.epam.jdi.uitests.web.selenium.elements.common.Text;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
+import org.mytests.components.EpamPagination;
 import org.mytests.components.PlateForm;
 import org.mytests.entities.Plate;
 import org.openqa.selenium.By;
@@ -32,7 +33,10 @@ public class MetalsAndColorsPage extends WebPage {
     public Text vegetablesText;
 
     @FindBy(css=".elem-res")
-    public IText elementsText ;
+    public Text elementsText ;
+
+    @FindBy(css=".uui-pagination")
+    public EpamPagination epamPagination;
 
 
 

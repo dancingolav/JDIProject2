@@ -1,10 +1,13 @@
 package org.mytests;
 
+import com.epam.jdi.uitests.web.selenium.driver.SeleniumDriverFactory;
+import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.web.matcher.testng.Assert;
 import org.mytests.entities.Plate;
 import org.mytests.entities.User;
 import org.mytests.testdata.LoginData;
 import org.mytests.testdata.PlateData;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import static org.mytests.EpamTestSite.*;
@@ -17,8 +20,12 @@ public class LoginTest extends InitTests {
     @Test( dataProviderClass=LoginData.class, dataProvider="dataforloginform")
     public void tryLogin(boolean testType, User user) {
 
+
+
+
         homePage.isOpened();
         homePage.checkOpened();
+
 
         //Set Login Form In Proper State
         homePage.setLoginFormInProperState();

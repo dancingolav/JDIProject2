@@ -19,10 +19,7 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.Dropdown;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
 import org.mytests.entities.Plate;
 
-import org.mytests.enums.Colors;
-import org.mytests.enums.Metals;
-import org.mytests.enums.Nature;
-import org.mytests.enums.Vegetables;
+import org.mytests.enums.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 
@@ -34,7 +31,7 @@ public class PlateForm extends Form<Plate> {
     @FindBy(id = "summary-block")
     public Summary summary;
 
-    @FindBy(id= "elements-block")
+    @FindBy(id = "elements-block")
     public Elements elements;
 
 
@@ -42,7 +39,7 @@ public class PlateForm extends Form<Plate> {
             By.cssSelector(".colors li span"));
 
 
-    @FindBy(xpath="//button[@id='submit-button'][@type='submit'][text()='Submit']")
+    @FindBy(xpath = "//button[@id='submit-button'][@type='submit'][text()='Submit']")
     public IButton submit;
 
 
@@ -52,10 +49,12 @@ public class PlateForm extends Form<Plate> {
                 protected String getTextAction() {
                     return new Text(By.cssSelector(".metals .filter-option")).getText();
                 }
+
+
             };
 
 
-    public IDropList<Vegetables> vegetables = new DropList<Vegetables>(By.cssSelector(".form-group .salad .caret"),By.cssSelector(".salad .dropdown-toggle"),By.cssSelector(".salad li .checkbox label"))
+    public IDropList<Vegetables> vegetables = new DropList<Vegetables>(By.cssSelector(".form-group .salad .caret"), By.cssSelector(".salad .dropdown-toggle"), By.cssSelector(".salad li .checkbox label"))
 
     {
         @Override
@@ -68,29 +67,88 @@ public class PlateForm extends Form<Plate> {
     @Override
     public void submit(Plate plate) {
 
-        summary.odds.select(plate.odD);
-        summary.even.select(plate.eveN);
+        //"Salad" is a value by default  I will clear the value in very ugly but a simple way. KISS.
+        vegetables.select("Salad");
+        //And set the new values for vegetables
+        vegetables.select(plate.vegetableS);
+
+
+
+        //select if there is in enum otherwise leave default
+        if (oddsContains(plate.odD))
+            summary.odds.select(plate.odD);
+        if (evenContains(plate.eveN))
+            summary.even.select(plate.eveN);
 
 
         elements.nature.uncheckAll();
         elements.nature.select(plate.elementS);
 
         colors.expand();
-        colors.select(plate.colorS);
-        metals.expand();
-        metals.select(plate.metalS);
+        if (colorContains(plate.colorS))
+                  colors.select(plate.colorS);
 
-        //"Salad" is a value by default  I will clear the value in very ugly but a simple way. KISS.
-        vegetables.select("Salad");
-        //And set the new values for vegetables
-        vegetables.select(plate.vegetableS);
+
+        if (metalsContains(plate.metalS))
+        { metals.expand();
+            metals.select(plate.metalS);}
+        else
+        {   metals.clear();
+            metals.sendKeys(plate.metalS);}
+
+
+
 
         submit.click();
     }
 
+    public static boolean oddsContains(String test) {
+
+        for (Odds c : Odds.values()) {
+            if (c.value.equals(test)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static  boolean evenContains(String test) {
+        for (Even c : Even.values()) {
+            if (c.value.equals(test)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static  boolean colorContains(String test) {
+        for (Colors c : Colors.values()) {
+            if (c.value.equals(test)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static  boolean metalsContains(String test) {
+        for (Metals c : Metals.values()) {
+            if (c.value.equals(test)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+  /*  public <E extends Enum<E>> boolean isInEnum(String test, Class<E> enumClass) {
+
+        for (E e : enumClass.getEnumConstants()) {
+            System.out.println(e.name());
+            if(e.name().equals(test)) { return true; }
+        }
+        return false;
+    }*/
 
 
 }
-
 
 

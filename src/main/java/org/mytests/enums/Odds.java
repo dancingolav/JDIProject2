@@ -9,4 +9,5 @@ public enum Odds {
     Odds(String value) {
         this.value = value;
     }
+
 }

@@ -21,23 +21,23 @@ public class HomePage extends WebPage {
 
 
     @FindBy(xpath = "//div[@class='profile-photo']")
-    private Clickable openLoginOrLogoutMenu;
+    public Clickable openLoginOrLogoutMenu;
 
     //LogoutButton
     @FindBy (xpath="//button[@type='submit']/span[text()='Logout']")
-    private Button logoutButton;
+    public Button logoutButton;
 
     //LoginLogout Menu Open
     @FindBy (xpath="//li[@class='dropdown uui-profile-menu open']")
-    private Element menuOpen;
+    public Element menuOpen;
 
     //LoginLogout Menu Closed
     @FindBy(xpath=("//li[@class='dropdown uui-profile-menu']"))
-    private Element menuClosed;
+    public Element menuClosed;
 
     //We will use the message to check that login is failed
     @FindBy(xpath="//span[@class='login-txt'][text()='* Login Faild']")
-    private Text loginFailed;
+    public Text loginFailed;
 
     @FindBy(xpath="//form[@class='form-horizontal']")
     public UserLoginForm userLoginForm;

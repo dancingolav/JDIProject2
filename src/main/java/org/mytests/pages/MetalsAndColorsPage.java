@@ -1,16 +1,27 @@
 package org.mytests.pages;
 
 import com.epam.jdi.uitests.core.interfaces.common.IText;
+import com.epam.jdi.uitests.web.selenium.driver.WebDriverUtils;
+import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.common.Text;
+import com.epam.jdi.uitests.web.selenium.elements.composite.Pagination;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
+import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
+import com.epam.jdi.uitests.web.settings.WebSettings;
 import org.mytests.components.EpamPagination;
 import org.mytests.components.PlateForm;
 import org.mytests.entities.Plate;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+
+import static com.epam.web.matcher.testng.Assert.assertTrue;
+import static com.epam.web.matcher.testng.Assert.waitTimeout;
+import static java.lang.System.setProperty;
+import static org.mytests.EpamTestSite.metalsAndColorsPage;
 
 /**
  * Created by AlexSh on 20.11.2016.
@@ -35,12 +46,10 @@ public class MetalsAndColorsPage extends WebPage {
     @FindBy(css=".elem-res")
     public Text elementsText ;
 
-    @FindBy(css=".uui-pagination")
+    @FindBy(xpath="//ul[@class='uui-pagination']")
     public EpamPagination epamPagination;
 
-
-
-public boolean checkCalculate(Plate plate) {
+    public boolean checkCalculate(Plate plate) {
 
     int sum = Integer.parseInt(plate.eveN) + Integer.parseInt(plate.odD);
     String trm = calculateText.getText().trim();
@@ -68,9 +77,22 @@ public boolean checkColors (Plate plate) {
 public boolean checkMetals (Plate plate) {
 
     String clr = plate.metalS;
+
+    //We have default value for "metal" but the result can be empty since
+    //value can be empty string
+    if (clr.isEmpty())
+        try {
+            if (metalsText.getText().isEmpty() || vegetablesText.getText().trim().equals("Metal:"))
+                return true;
+            else return false;
+        }
+        catch (Exception e){
+            return true;
+        }
+        catch (Error e) {
+            return true;
+        }
     String trm = metalsText.getText().trim();
-    //We have default value for "metal" so the result can not be empty
-    if (trm.isEmpty()) return false;
     //We always have two words in the result's string. "Metal:" and $metal
     int wc = trm.split("\\s+").length;
 
@@ -130,5 +152,6 @@ public boolean checkElements (Plate plate) {
 
     return chk && (wc==clr.length+1) && trm.contains("Elements:");
 }
+
 
 }

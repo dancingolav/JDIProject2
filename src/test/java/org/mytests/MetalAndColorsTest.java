@@ -5,30 +5,16 @@ import org.mytests.entities.Plate;
 import org.mytests.entities.User;
 import org.mytests.testdata.PlateData;
 import org.testng.annotations.Test;
-
-
 import static com.epam.web.matcher.testng.Assert.assertTrue;
-import static org.mytests.EpamTestSite.homePage;
-import static org.mytests.EpamTestSite.metalsAndColorsPage;
-
-
+import static org.mytests.EpamTestSite.*;
 
 /**
  * Created by AlexSh on 20.11.2016.
  */
 public class MetalAndColorsTest extends InitTests{
 
-    public void prepareEvironmentForMetalAndColorTest() {
 
-        homePage.isOpened();
 
-        if (!homePage.isLogged()) {
-            //Set Login Form In Proper State
-            homePage.setLoginFormInProperState();
-            //Attempt to Login
-            homePage.userLoginForm.login(User.DEFAULT_USER);
-        }
-    }
 
     @Test( dataProviderClass=PlateData.class, dataProvider="dataforplateform")
     public void plateTest(Plate plate) {
@@ -48,5 +34,19 @@ public class MetalAndColorsTest extends InitTests{
     }
 
 
+    public static void prepareEvironmentForMetalAndColorTest() {
+
+        homePage.open();
+
+        if (!homePage.isLogged()) {
+            //Set Login Form In Proper State
+            homePage.setLoginFormInProperState();
+            //Attempt to Login
+            homePage.userLoginForm.login(User.DEFAULT_USER);
+
+        }
+
+        metalsAndColorsPage.open();
+    }
 
 }

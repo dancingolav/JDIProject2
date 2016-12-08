@@ -19,7 +19,9 @@ public class PlateData {
                 //String vegetableS {"Salad","Cucumber","Tomato","Onion"}
 
                 //Plate(String odD, String eveN, String[] elementS, String coloR, String metaL, String[] vegetableS)
-                { new Plate("1","2", new String[] {}, "Yellow","Silver",new String[] {})},
+                { new Plate()},
+                { new Plate("1","2", new String[] {}, "","",new String[] {})},
+                { new Plate("1","2", new String[] {}, "","SSSSilver",new String[] {})},
                 { new Plate("1","2", new String[] {}, "Yellow","Silver",new String[] {"Tomato"})},
                 { new Plate("3","6", new String[] {"Fire"}, "Red","Silver",new String[] {"Salad","Cucumber"})},
                 { new Plate("5","8", new String[] {"Earth", "Wind"}, "Green","Gold",new String[] {"Onion","Cucumber","Tomato"})},

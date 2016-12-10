@@ -12,8 +12,6 @@
         </classes>
     </test>
 
-
-
   <test name="MetalAndColorsTest">
         <classes>
             <class name= "org.mytests.MetalAndColorsTest" />

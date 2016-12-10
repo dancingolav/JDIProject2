@@ -53,12 +53,9 @@ public class InitTests extends TestNGBase {
  @AfterClass(alwaysRun = true)
   public void tearDown()
   {   Verify.getFails();
-      //WebSettings.getDriverFactory().close();
-      //WebSettings.getDriverFactory().quit();
-       WebDriverUtils.killAllRunWebDrivers();
-       WebSettings.getDriverFactory().quit();
-      //WebSettings.getDriver().close();
-      //WebSettings.getDriver().quit();
+
+      WebSettings.getDriverFactory().close();
+      WebDriverUtils.killAllRunWebDrivers();
       logger.info("End Tests");
 
   }

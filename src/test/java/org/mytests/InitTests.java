@@ -40,13 +40,6 @@ public class InitTests extends TestNGBase {
 
 
 
- /*   @AfterClass(alwaysRun = true)
-    public void tearDown()
-    {   Verify.getFails();
-
-        WebSettings.getDriver().close();
-        logger.info("End Tests");
-    }*/
 
 
 

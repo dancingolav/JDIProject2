@@ -28,6 +28,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class PlateForm extends Form<Plate> {
 
+
+
     @FindBy(id = "summary-block")
     public Summary summary;
 
@@ -69,6 +71,7 @@ public class PlateForm extends Form<Plate> {
 
         //"Salad" is a value by default  I will clear the value in very ugly but a simple way. KISS.
         vegetables.select("Salad");
+        //vegetables.uncheckAll();
         //And set the new values for vegetables
         vegetables.select(plate.vegetableS);
 

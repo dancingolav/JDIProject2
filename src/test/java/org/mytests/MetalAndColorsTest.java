@@ -2,7 +2,6 @@ package org.mytests;
 
 
 import org.mytests.entities.Plate;
-import org.mytests.entities.User;
 import org.mytests.testdata.PlateData;
 import org.testng.annotations.Test;
 import static com.epam.web.matcher.testng.Assert.assertTrue;
@@ -20,10 +19,8 @@ public class MetalAndColorsTest extends InitTests{
     public void plateTest(Plate plate) {
 
 
-
-        prepareEvironmentForMetalAndColorTest();
-
         metalsAndColorsPage.isOpened();
+
         metalsAndColorsPage.plateForm.submit(plate);
         assertTrue(metalsAndColorsPage.checkCalculate(plate),"The result (sum) is wrong");
         assertTrue(metalsAndColorsPage.checkColors(plate),"The color is wrong");
@@ -34,19 +31,5 @@ public class MetalAndColorsTest extends InitTests{
     }
 
 
-    public static void prepareEvironmentForMetalAndColorTest() {
-
-        homePage.open();
-
-        if (!homePage.isLogged()) {
-            //Set Login Form In Proper State
-            homePage.setLoginFormInProperState();
-            //Attempt to Login
-            homePage.userLoginForm.login(User.DEFAULT_USER);
-
-        }
-
-        metalsAndColorsPage.open();
-    }
 
 }

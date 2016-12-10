@@ -1,10 +1,7 @@
 package org.mytests.pages;
 
 
-import com.epam.jdi.uitests.core.interfaces.base.IClickable;
-import com.epam.jdi.uitests.core.interfaces.base.IElement;
-import com.epam.jdi.uitests.core.interfaces.common.IButton;
-import com.epam.jdi.uitests.core.interfaces.common.IText;
+
 import com.epam.jdi.uitests.web.selenium.elements.base.Clickable;
 import com.epam.jdi.uitests.web.selenium.elements.base.Element;
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
@@ -21,82 +18,86 @@ public class HomePage extends WebPage {
 
 
     @FindBy(xpath = "//div[@class='profile-photo']")
-    public Clickable openLoginOrLogoutMenu;
+    public  Clickable openLoginOrLogoutMenu;
 
     //LogoutButton
     @FindBy (xpath="//button[@type='submit']/span[text()='Logout']")
-    public Button logoutButton;
+    public  Button logoutButton;
 
     //LoginLogout Menu Open
     @FindBy (xpath="//li[@class='dropdown uui-profile-menu open']")
-    public Element menuOpen;
+    public  Element menuOpen;
 
     //LoginLogout Menu Closed
     @FindBy(xpath=("//li[@class='dropdown uui-profile-menu']"))
-    public Element menuClosed;
+    public  Element menuClosed;
 
     //We will use the message to check that login is failed
     @FindBy(xpath="//span[@class='login-txt'][text()='* Login Faild']")
-    public Text loginFailed;
+    public  Text loginFailed;
 
     @FindBy(xpath="//form[@class='form-horizontal']")
-    public UserLoginForm userLoginForm;
+    public  UserLoginForm userLoginForm;
 
-    public boolean isLoginOrLogoutMenuOpen() {
+    public  boolean isLoginOrLogoutMenuOpen() {
 
        try  { return  menuOpen.isDisplayed(); }
-       catch (StaleElementReferenceException se) {return false;}
-       catch (NoSuchElementException ns ) {return false;}
+       catch (Exception ex) {return false;}
+       catch (Error er ) {return false;}
 
     }
 
-     public boolean doesLogoutButtonExist() {
+     public  boolean doesLogoutButtonExist() {
         try  { return  logoutButton.isDisplayed(); }
-        catch (StaleElementReferenceException se) {return false;}
-        catch (NoSuchElementException ns ) {return false;}
+        catch (Exception ex) {return false;}
+        catch (Error er  ) {return false;}
     }
 
-    public void  openLoginOrLogoutMenu() {
-        openLoginOrLogoutMenu.click();
+    public  void  openLoginOrLogoutMenu() {
+        try {
+        openLoginOrLogoutMenu.click();}
+        catch (Exception ex) {}
+        catch (Error er  ) {}
+
     }
 
     public void logout() {
         logoutButton.click();
     }
 
-    public boolean isLogoutMenuOpen() {
+    public  boolean isLogoutMenuOpen() {
         return isLoginOrLogoutMenuOpen() && doesLogoutButtonExist();
 
     }
 
-    public boolean isLoginFailed (){
+    public  boolean isLoginFailed (){
         try  { return loginFailed.isDisplayed(); }
-        catch (StaleElementReferenceException se) {return false;}
-        catch (NoSuchElementException ns ) {return false;}
+        catch (Exception ex) {return false;}
+        catch (Error er  ) {return false;}
 
     }
 
-    public boolean isLoginSucceed(){
+    public  boolean isLoginSucceed(){
         try  { return logoutButton.isDisplayed(); }
-        catch (StaleElementReferenceException se) {return false;}
-        catch (NoSuchElementException ns ) {return false;}
+        catch (Exception ex) {return false;}
+        catch (Error er ) {return false;}
     }
 
-    public boolean isLogged(){
+    public  boolean isLogged(){
 
         try  {
             openLoginOrLogoutMenu.click();
             return isLoginSucceed();}
 
-        catch (StaleElementReferenceException se) {return false;}
-        catch (NoSuchElementException ns ) {return false;}
+        catch (Exception ex) {return false;}
+        catch (Error er  ) {return false;}
 
 
     }
 
 
 
-    public void setLoginFormInProperState() {
+    public  void setLoginFormInProperState() {
 
         //-------------------------------------------Set login form in proper state
         //if login or logout menu is closed we will open it

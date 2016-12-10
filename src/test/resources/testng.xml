@@ -2,18 +2,19 @@
 
 
 
-<suite name="TestAll">
 
+<suite name="TestAll">
 
     <test name="LoginTest">
         <classes>
             <class name= "org.mytests.LoginTest" />
+
         </classes>
     </test>
 
 
 
-    <test name="MetalAndColorsTest">
+  <test name="MetalAndColorsTest">
         <classes>
             <class name= "org.mytests.MetalAndColorsTest" />
         </classes>

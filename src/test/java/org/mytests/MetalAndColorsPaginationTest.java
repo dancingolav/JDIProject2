@@ -1,11 +1,10 @@
 package org.mytests;
 
 
-import com.epam.web.matcher.testng.Assert;
+
 import org.testng.annotations.Test;
-import static com.epam.web.matcher.testng.Assert.assertTrue;
 import static org.mytests.EpamTestSite.metalsAndColorsPage;
-import static org.mytests.MetalAndColorsTest.prepareEvironmentForMetalAndColorTest;
+
 
 
 /**
@@ -16,8 +15,7 @@ public class MetalAndColorsPaginationTest extends InitTests{
     @Test
     public void paginationFirstTest(){
 
-        prepareEvironmentForMetalAndColorTest();
-
+        metalsAndColorsPage.isOpened();
         metalsAndColorsPage.epamPagination.first();
         metalsAndColorsPage.epamPagination.checkPageOpenned("/page1.htm");
 
@@ -25,13 +23,11 @@ public class MetalAndColorsPaginationTest extends InitTests{
     }
 
 
-
     @Test
     public void paginationButton2Test(){
 
-       prepareEvironmentForMetalAndColorTest();
-
-       metalsAndColorsPage.epamPagination.page2.click();
+        metalsAndColorsPage.isOpened();
+        metalsAndColorsPage.epamPagination.selectPage(2);
         metalsAndColorsPage.epamPagination.checkPageOpenned("/page2.htm");
     }
 
@@ -40,10 +36,8 @@ public class MetalAndColorsPaginationTest extends InitTests{
     @Test
     public void paginationButtonNextButton2Test() {
 
-        prepareEvironmentForMetalAndColorTest();
-
-
-        metalsAndColorsPage.epamPagination.page2.click();
+        metalsAndColorsPage.isOpened();
+        metalsAndColorsPage.epamPagination.selectPage(2);
         metalsAndColorsPage.epamPagination.next();
         metalsAndColorsPage.epamPagination.checkPageOpenned("/page3.htm");
 
@@ -53,10 +47,8 @@ public class MetalAndColorsPaginationTest extends InitTests{
     @Test
     public void paginationButtonPreviousButton2Test() {
 
-        prepareEvironmentForMetalAndColorTest();
-
-
-        metalsAndColorsPage.epamPagination.page2.click();
+        metalsAndColorsPage.isOpened();
+        metalsAndColorsPage.epamPagination.selectPage(2);
         metalsAndColorsPage.epamPagination.previous();
         metalsAndColorsPage.epamPagination.checkPageOpenned("/page1.htm");
 
@@ -66,8 +58,8 @@ public class MetalAndColorsPaginationTest extends InitTests{
     @Test
     public void paginationLastAfterButton4Test() {
 
-        prepareEvironmentForMetalAndColorTest();
-        metalsAndColorsPage.epamPagination.page4.click();
+        metalsAndColorsPage.isOpened();
+        metalsAndColorsPage.epamPagination.selectPage(4);
         metalsAndColorsPage.epamPagination.last();
         metalsAndColorsPage.epamPagination.checkPageOpenned("/page8.htm");
 
@@ -77,8 +69,9 @@ public class MetalAndColorsPaginationTest extends InitTests{
     @Test
     public void paginationNextAndLastButton8Test() {
 
-        prepareEvironmentForMetalAndColorTest();
-        metalsAndColorsPage.epamPagination.page8.click();
+        metalsAndColorsPage.isOpened();
+
+        metalsAndColorsPage.epamPagination.selectPage(8);
         //Button "Next" has not to be active
         metalsAndColorsPage.epamPagination.checkNotActive(metalsAndColorsPage.epamPagination.next);
         //Button "Last" has not to be active
@@ -89,15 +82,13 @@ public class MetalAndColorsPaginationTest extends InitTests{
     @Test
     public void paginationPreviousAndFirstButton1Test() {
 
-        prepareEvironmentForMetalAndColorTest();
-        metalsAndColorsPage.epamPagination.page1.click();
+        metalsAndColorsPage.isOpened();
+        metalsAndColorsPage.epamPagination.selectPage(1);
         //Button "Next" has not to be active
         metalsAndColorsPage.epamPagination.checkNotActive(metalsAndColorsPage.epamPagination.prev);
         //Button "Last" has not to be active
         metalsAndColorsPage.epamPagination.checkNotActive(metalsAndColorsPage.epamPagination.first);
 
     }
-
-
 
 }

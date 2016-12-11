@@ -81,18 +81,18 @@ public boolean checkMetals (Plate plate) {
     //We have default value for "metal" but the result can be empty since
     //value can be empty string
     if (clr.equals(""))
-       /* try {*/
+       try {
 
             if ((!metalsText.isDisplayed()) || metalsText.getText().equals("") ||  metalsText.getText().trim().equals("Metal:"))
                 return true;
-       /*     else return false;
-        }
+           else return false;
+      }
         catch (Exception e){
             return true;
         }
         catch (Error e) {
             return true;
-        }*/
+        }
     String trm = metalsText.getText().trim();
     //We always have two words in the result's string. "Metal:" and $metal
     int wc = trm.split("\\s+").length;
@@ -105,13 +105,11 @@ public boolean checkVegetables (Plate plate) {
 
     if (plate.vegetableS.length == 0) {
 
-
-
         try {
             if ((!vegetablesText.isDisplayed()) || vegetablesText.getText().equals("") ||vegetablesText.getText().trim().equals("Vegetables:"))
                 return true;
             else return false;
-        }
+       }
         catch (Exception e){
             return true;
         }
@@ -138,7 +136,7 @@ public boolean checkVegetables (Plate plate) {
 
 public boolean checkElements (Plate plate) {
     if (plate.elementS.length == 0) {
-        try {
+   try {
             if (elementsText.getText().isEmpty() || elementsText.getText().trim().equals("Elements:"))
                 return true;
             else return false;}

@@ -3,20 +3,17 @@
 
 
 
-<suite name="TestAll">
+<suite name="TestAll"  parallel="classes" thread-count="2">
 
     <test name="LoginTest">
         <classes>
             <class name= "org.mytests.LoginTest" />
-
-        </classes>
-    </test>
-
-  <test name="MetalAndColorsTest">
-        <classes>
             <class name= "org.mytests.MetalAndColorsTest" />
+            <class name= "org.mytests.MetalAndColorsPaginationTest" />
+            <class name= "org.mytests.DifferentElementsTest" />
         </classes>
     </test>
+
 
 </suite>
 

@@ -21,7 +21,7 @@ import static org.mytests.EpamTestSite.homePage;
 
 public class InitTests extends TestNGBase {
 
-    @BeforeClass(alwaysRun = true)
+    @BeforeSuite(alwaysRun = true)
     public static void setUp() throws Exception {
         WebSite.init(EpamTestSite.class);
 
@@ -30,17 +30,18 @@ public class InitTests extends TestNGBase {
         JDISettings.initFromProperties();
         Verify.getFails();
         logger.info("Run Tests");
-        homePage.open();
-        //Set Login Form In Proper State
-        homePage.setLoginFormInProperState();
-
-        //Attempt to Login
-        homePage.userLoginForm.login(User.DEFAULT_USER);
     }
 
+    @BeforeClass(alwaysRun = true)
+    public static void  beforeClass() {
 
+     homePage.open();
+    //Set Login Form In Proper State
+        homePage.setLoginFormInProperState();
 
-
+    //Attempt to Login
+        homePage.userLoginForm.login(User.DEFAULT_USER);
+}
 
 
  @AfterClass(alwaysRun = true)

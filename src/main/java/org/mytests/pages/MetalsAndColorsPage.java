@@ -70,7 +70,7 @@ public boolean checkColors (Plate plate) {
     if (trm.isEmpty()) return false;
     //We always have two words in the result's string. "Color:" and $color
     int wc = trm.split("\\s+").length;
-    System.out.println(trm+" "+wc+" "+ trm.contains(clr));
+
     return wc==2 && trm.contains("Color:") && trm.contains(clr);
 }
 
@@ -80,18 +80,19 @@ public boolean checkMetals (Plate plate) {
 
     //We have default value for "metal" but the result can be empty since
     //value can be empty string
-    if (clr.isEmpty())
-        try {
-            if (metalsText.getText().isEmpty() || vegetablesText.getText().trim().equals("Metal:"))
+    if (clr.equals(""))
+       /* try {*/
+
+            if ((!metalsText.isDisplayed()) || metalsText.getText().equals("") ||  metalsText.getText().trim().equals("Metal:"))
                 return true;
-            else return false;
+       /*     else return false;
         }
         catch (Exception e){
             return true;
         }
         catch (Error e) {
             return true;
-        }
+        }*/
     String trm = metalsText.getText().trim();
     //We always have two words in the result's string. "Metal:" and $metal
     int wc = trm.split("\\s+").length;
@@ -103,8 +104,11 @@ public boolean checkMetals (Plate plate) {
 public boolean checkVegetables (Plate plate) {
 
     if (plate.vegetableS.length == 0) {
+
+
+
         try {
-            if (vegetablesText.getText().isEmpty() || vegetablesText.getText().trim().equals("Vegetables:"))
+            if ((!vegetablesText.isDisplayed()) || vegetablesText.getText().equals("") ||vegetablesText.getText().trim().equals("Vegetables:"))
                 return true;
             else return false;
         }
@@ -116,12 +120,16 @@ public boolean checkVegetables (Plate plate) {
         }
     }
 
-    String trm = vegetablesText.getText().trim();
+    String trm = vegetablesText.getText();
+
+    System.out.println(trm);
+
     int wc = trm.split("\\s+").length;
     String [] clr = plate.vegetableS;
     boolean chk = true;
     if (clr.length != 0)
         for (String str: clr) {
+            System.out.println(str);
             chk = chk && trm.contains(str);
     }
 

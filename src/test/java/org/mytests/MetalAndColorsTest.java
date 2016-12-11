@@ -18,8 +18,8 @@ public class MetalAndColorsTest extends InitTests{
     @Test( dataProviderClass=PlateData.class, dataProvider="dataforplateform")
     public void plateTest(Plate plate) {
 
-
-        metalsAndColorsPage.isOpened();
+        //It's better that isOpen since it cleans page from old data for new test
+        metalsAndColorsPage.open();
 
         metalsAndColorsPage.plateForm.submit(plate);
         assertTrue(metalsAndColorsPage.checkCalculate(plate),"The result (sum) is wrong");

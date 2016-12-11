@@ -21,9 +21,11 @@ import org.mytests.entities.Plate;
 
 import org.mytests.enums.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class PlateForm extends Form<Plate> {
@@ -56,7 +58,9 @@ public class PlateForm extends Form<Plate> {
             };
 
 
-    public IDropList<Vegetables> vegetables = new DropList<Vegetables>(By.cssSelector(".form-group .salad .caret"), By.cssSelector(".salad .dropdown-toggle"), By.cssSelector(".salad li .checkbox label"))
+
+  public IDropList<Vegetables> vegetables = new DropList<Vegetables>(By.cssSelector(".form-group .salad .caret"),
+            By.cssSelector(".salad .dropdown-toggle"), By.cssSelector(".salad li .checkbox label"))
 
     {
         @Override
@@ -64,14 +68,15 @@ public class PlateForm extends Form<Plate> {
             return new Text(By.cssSelector(".salad .dropdown-toggle")).getText();
         }
 
+
     };
 
     @Override
     public void submit(Plate plate) {
 
         //"Salad" is a value by default  I will clear the value in very ugly but a simple way. KISS.
+
         vegetables.select("Salad");
-        //vegetables.uncheckAll();
         //And set the new values for vegetables
         vegetables.select(plate.vegetableS);
 
@@ -90,11 +95,14 @@ public class PlateForm extends Form<Plate> {
         colors.expand();
         if (colorContains(plate.colorS))
                   colors.select(plate.colorS);
+        colors.close();
 
 
-        if (metalsContains(plate.metalS))
+
+        if (metalsContains(plate.metalS) && !plate.metalS.equals(""))
         { metals.expand();
-            metals.select(plate.metalS);}
+            metals.select(plate.metalS);
+        metals.close();}
         else
         {   metals.clear();
             metals.sendKeys(plate.metalS);}
@@ -134,6 +142,7 @@ public class PlateForm extends Form<Plate> {
     }
 
     public static  boolean metalsContains(String test) {
+
         for (Metals c : Metals.values()) {
             if (c.value.equals(test)) {
                 return true;

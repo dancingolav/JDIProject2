@@ -4,16 +4,16 @@ package org.mytests;
 import org.junit.Assert;
 import org.mytests.testdata.CheckBoxButtonsData;
 import org.mytests.testdata.RadioButtonsData;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import static org.mytests.EpamTestSite.differentElementsPage;
 
 /**
  * Created by AlexSh on 20.11.2016.
+ *
  */
 
-@Listeners({ FailureListener.class })
 public class DifferentElementsTest extends InitTests{
+
 
 
     @Test (dataProviderClass=CheckBoxButtonsData.class, dataProvider="checkboxbuttons")
@@ -44,15 +44,15 @@ public class DifferentElementsTest extends InitTests{
         differentElementsPage.isOpened();
 
         differentElementsPage.button.click();
-        Assert.assertTrue("A button 'BUTTON' does not work properly",
+        Assert.assertTrue("The button 'BUTTON' does not work properly",
                 differentElementsPage.isLastLogRecordContains("button:button clicked"));
 
         differentElementsPage.defaultButton.click();
-        Assert.assertTrue("A button 'DEFAULT BUTTON' does not work properly",
+        Assert.assertTrue("The button 'DEFAULT BUTTON' does not work properly",
                 differentElementsPage.isLastLogRecordContains("Default Button:button clicked"));
 
         differentElementsPage.button.click();
-        Assert.assertTrue("A button 'BUTTON' does not work properly",
+        Assert.assertTrue("The button 'BUTTON' does not work properly",
                 differentElementsPage.isLastLogRecordContains("button:button clicked"));
 
     }

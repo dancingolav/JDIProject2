@@ -9,7 +9,7 @@ import static org.mytests.EpamTestSite.*;
 import static org.testng.Assert.assertTrue;
 
 
-@Listeners({ FailureListener.class })
+
 public class LoginTest extends InitTests {
 
 

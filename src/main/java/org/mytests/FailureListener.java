@@ -28,7 +28,7 @@ public class FailureListener extends TestListenerAdapter {
    @Attachment(value = "Page screenshot", type = "image/png")
     public byte[] makeScreenshot() {
     try {
-            Thread.sleep(1000);
+            Thread.sleep(1500);
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }

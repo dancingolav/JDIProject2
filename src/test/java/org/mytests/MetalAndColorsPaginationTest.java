@@ -12,7 +12,7 @@ import static org.mytests.EpamTestSite.metalsAndColorsPage;
  * Created by AlexSh on 20.11.2016.
  */
 
-@Listeners({ FailureListener.class })
+
 public class MetalAndColorsPaginationTest extends InitTests{
 
     @Test

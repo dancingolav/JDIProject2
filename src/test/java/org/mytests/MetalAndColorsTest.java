@@ -12,7 +12,6 @@ import static org.mytests.EpamTestSite.*;
  * Created by AlexSh on 20.11.2016.
  */
 
-@Listeners({ FailureListener.class })
 public class MetalAndColorsTest extends InitTests{
 
 
@@ -32,7 +31,5 @@ public class MetalAndColorsTest extends InitTests{
         assertTrue (metalsAndColorsPage.checkElements(plate),"The elements are wrong");
 
     }
-
-
 
 }

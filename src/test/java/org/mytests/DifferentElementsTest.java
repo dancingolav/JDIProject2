@@ -4,12 +4,15 @@ package org.mytests;
 import org.junit.Assert;
 import org.mytests.testdata.CheckBoxButtonsData;
 import org.mytests.testdata.RadioButtonsData;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import static org.mytests.EpamTestSite.differentElementsPage;
 
 /**
  * Created by AlexSh on 20.11.2016.
  */
+
+@Listeners({ FailureListener.class })
 public class DifferentElementsTest extends InitTests{
 
 

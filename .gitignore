@@ -14,4 +14,4 @@ packages/
 *.exe
 
 
-
+*.log

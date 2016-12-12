@@ -12,7 +12,11 @@ import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
 import com.epam.web.matcher.verify.Verify;
 import org.mytests.components.EpamPagination;
 import org.mytests.entities.User;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
+
+import java.util.function.Supplier;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 import static com.epam.jdi.uitests.web.selenium.driver.WebDriverUtils.killAllRunWebDrivers;
@@ -25,9 +29,10 @@ public class InitTests extends TestNGBase {
     public static void setUp() throws Exception {
         WebSite.init(EpamTestSite.class);
 
-        //JDISettings.driverFactory.driversPath = "C:\\Selenium";
+        String str = System.getProperty("browser","chrome");
+        WebSettings.useDriver(str);
 
-        JDISettings.initFromProperties();
+
         Verify.getFails();
         logger.info("Run Tests");
     }

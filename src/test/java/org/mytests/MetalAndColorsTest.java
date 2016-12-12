@@ -3,6 +3,7 @@ package org.mytests;
 
 import org.mytests.entities.Plate;
 import org.mytests.testdata.PlateData;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import static com.epam.web.matcher.testng.Assert.assertTrue;
 import static org.mytests.EpamTestSite.*;
@@ -10,6 +11,8 @@ import static org.mytests.EpamTestSite.*;
 /**
  * Created by AlexSh on 20.11.2016.
  */
+
+@Listeners({ FailureListener.class })
 public class MetalAndColorsTest extends InitTests{
 
 

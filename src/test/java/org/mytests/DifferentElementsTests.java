@@ -12,7 +12,7 @@ import static org.mytests.EpamTestSite.differentElementsPage;
  *
  */
 
-public class DifferentElementsTest extends InitTests{
+public class DifferentElementsTests extends InitTests{
 
 
 

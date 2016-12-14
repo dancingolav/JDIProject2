@@ -2,16 +2,10 @@ package org.mytests.pages;
 
 import com.epam.jdi.uitests.core.interfaces.common.IButton;
 import com.epam.jdi.uitests.core.interfaces.common.IText;
-import com.epam.jdi.uitests.core.interfaces.complex.IDropDown;
-import com.epam.jdi.uitests.core.interfaces.complex.ISelector;
-import com.epam.jdi.uitests.web.selenium.elements.complex.Dropdown;
-import com.epam.jdi.uitests.web.selenium.elements.complex.Selector;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
+import org.mytests.components.DiffElemDropDown;
 import org.mytests.components.DiffElemPageCheckList;
 import org.mytests.components.DiffElemPageRadioButtons;
-import org.mytests.enums.Colors;
-import org.mytests.enums.Metals;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 
 
@@ -27,6 +21,9 @@ public class DifferentElementsPage extends WebPage {
             "//div[@class='checkbox-row']/label[@class='label-checkbox']",
             "/input");
 
+    public DiffElemDropDown dropDown = new  DiffElemDropDown("//select[@class='uui-form-element']",
+            "/option");
+
     @FindBy(xpath = "//button[@name='Default Button']")
     public IButton defaultButton;
 
@@ -35,8 +32,6 @@ public class DifferentElementsPage extends WebPage {
 
     @FindBy(xpath="//ul[@class='panel-body-list logs'] /li[1]")
     public IText lastLogRecorg;
-
-
 
 
     public boolean isLastLogRecordContains(String ... partsOfStringsWeAreLooking) {

@@ -13,7 +13,7 @@ import static org.mytests.EpamTestSite.metalsAndColorsPage;
  */
 
 
-public class MetalAndColorsPaginationTest extends InitTests{
+public class MetalAndColorsPaginationTests extends InitTests{
 
     @Test
     public void paginationFirstTest(){

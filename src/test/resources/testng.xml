@@ -9,8 +9,9 @@
         <classes>
             <class name= "org.mytests.LoginTest" />
             <class name= "org.mytests.MetalAndColorsTest" />
-            <class name= "org.mytests.MetalAndColorsPaginationTest" />
-            <class name= "org.mytests.DifferentElementsTest" />
+            <class name= "org.mytests.MetalAndColorsPaginationTests" />
+            <class name= "org.mytests.DifferentElementsTests" />
+            <class name="org.mytests.DifferentElementsJSDropDownTest"/>
         </classes>
     </test>
 

@@ -62,9 +62,13 @@ public class InitTests extends TestNGBase {
       WebDriverUtils.killAllRunWebDrivers();
       logger.info("End Tests");
 
+
+      logger.info("------------------------------------------------------");
       logger.info("EpamPagination's selectPage(index int) method summary:");
-      System.out.println("EpamPagination's selectPage method was used for "+ EpamPagination.count+ " times" );
-      System.out.printf( "%s%.3f","A total time spent in seconds ",EpamPagination.timeSpentSeconds );
+      logger.info("------------------------------------------------------");
+      logger.info(String.format("EpamPagination's selectPage method was used for %d%s", EpamPagination.count, " times"));
+      logger.info(String.format("A total time spent %.3f%s",EpamPagination.timeSpentSeconds, " seconds"));
+      logger.info("------------------------------------------------------");
 
   }
 

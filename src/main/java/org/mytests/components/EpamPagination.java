@@ -1,5 +1,7 @@
 package org.mytests.components;
 
+
+
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Pagination;
 import org.openqa.selenium.By;
@@ -17,6 +19,8 @@ import static com.epam.web.matcher.testng.Assert.assertTrue;
  */
 public class EpamPagination extends Pagination {
 
+        public static int count;
+        public static double timeSpentSeconds;
 
         @FindBy(css = "[class='next']  a")
         public Button next;
@@ -38,11 +42,20 @@ public class EpamPagination extends Pagination {
 
         @Override
         public void selectPage (int numb) {
-        //li/a[contains(@href,'page') and contains(text(),'1')] ')]
+
+
                 String partOfXPath = "//li/a[contains(@href,'page') and contains(text(),'";
                 String tailOfXPath = "')]";
                 String fullXPath = partOfXPath + numb +tailOfXPath;
-                getDriver().findElement(By.xpath(fullXPath)).click();
+
+                long milliStartTime = System.currentTimeMillis();
+                        getDriver().findElement(By.xpath(fullXPath)).click();
+                long milliEndTime = System.currentTimeMillis();
+
+                timeSpentSeconds += (milliEndTime - milliStartTime) / 1000.0;
+                count++;
 
         }
 }
+
+

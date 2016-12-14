@@ -27,11 +27,16 @@ public class InitTests extends TestNGBase {
 
     @BeforeSuite(alwaysRun = true)
     public static void setUp() throws Exception {
-        WebSite.init(EpamTestSite.class);
+
+        MapInterfaceToElement.update(
+                new Object[][]{
+                        {IPagination.class, EpamPagination.class},
+
+                });
 
         String str = System.getProperty("browser","chrome");
         WebSettings.useDriver(str);
-
+        WebSite.init(EpamTestSite.class);
 
         Verify.getFails();
         logger.info("Run Tests");
@@ -56,6 +61,10 @@ public class InitTests extends TestNGBase {
       WebSettings.getDriverFactory().close();
       WebDriverUtils.killAllRunWebDrivers();
       logger.info("End Tests");
+
+      logger.info("EpamPagination's selectPage(index int) method summary:");
+      System.out.println("EpamPagination's selectPage method was used for "+ EpamPagination.count+ " times" );
+      System.out.printf( "%s%.3f","A total time spent in seconds ",EpamPagination.timeSpentSeconds );
 
   }
 

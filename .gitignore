@@ -12,6 +12,8 @@ packages/
 *.nupkg
 *.nuspec
 *.exe
+!chromedriver.exe
+!geckodriver.exe
 
 
 *.log

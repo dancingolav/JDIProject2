@@ -17,4 +17,10 @@ public class User {
         this.login = login;
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+
+        return login + ", "+ password;
+    }
 }

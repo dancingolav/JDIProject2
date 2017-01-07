@@ -1,5 +1,7 @@
 package org.mytests.entities;
 
+import java.util.Arrays;
+
 /**
  * Created by AlexSh on 19.11.2016.
  */
@@ -37,4 +39,10 @@ public class Plate {
         this.vegetableS=vegetableS;
     }
 
+
+
+    @Override
+    public String toString() {
+        return odD +","+eveN+","+Arrays.toString(elementS)+","+colorS+","+metalS+","+Arrays.toString(vegetableS);
+    }
 }

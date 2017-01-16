@@ -23,8 +23,8 @@ public class LoginTest extends InitTests {
         homePage.isOpened();
         homePage.checkOpened();
 
-        //Set Login Form In Proper State
-        //homePage.setLoginFormInProperState();
+        //Set Login Form In Proper State: the same is "homePage.setLoginFormInProperState()";
+
         isInState(SET_LOGIN_FORM_IN_PROPER_STATE);
 
         //Attempt to Login

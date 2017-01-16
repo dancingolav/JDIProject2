@@ -45,15 +45,15 @@ public class DifferentElementsTests extends InitTests{
 
         differentElementsPage.button.click();
         Assert.assertTrue("The button 'BUTTON' does not work properly",
-                differentElementsPage.isLastLogRecordContains("button:button clicked"));
+                differentElementsPage.doesLastLogRecordContain("button:button clicked"));
 
         differentElementsPage.defaultButton.click();
         Assert.assertTrue("The button 'DEFAULT BUTTON' does not work properly",
-                differentElementsPage.isLastLogRecordContains("Default Button:button clicked"));
+                differentElementsPage.doesLastLogRecordContain("Default Button:button clicked"));
 
         differentElementsPage.button.click();
         Assert.assertTrue("The button 'BUTTON' does not work properly",
-                differentElementsPage.isLastLogRecordContains("button:button clicked"));
+                differentElementsPage.doesLastLogRecordContain("button:button clicked"));
 
     }
 

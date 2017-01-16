@@ -36,7 +36,7 @@ public class EpamPagination extends Pagination {
                 assertTrue(!btn.isDisplayed());
         }
 
-        public void checkPageOpenned(String htmlPage) {
+        public void checkPageOpened(String htmlPage) {
                 assertTrue(getDriver().getCurrentUrl().contains(htmlPage));
         }
 

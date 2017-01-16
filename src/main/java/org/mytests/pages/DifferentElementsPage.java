@@ -2,6 +2,8 @@ package org.mytests.pages;
 
 import com.epam.jdi.uitests.core.interfaces.common.IButton;
 import com.epam.jdi.uitests.core.interfaces.common.IText;
+import com.epam.jdi.uitests.core.interfaces.complex.ITextList;
+import com.epam.jdi.uitests.web.selenium.elements.complex.TextList;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import org.mytests.components.DiffElemDropDown;
 import org.mytests.components.DiffElemPageCheckList;
@@ -34,7 +36,8 @@ public class DifferentElementsPage extends WebPage {
     public IText lastLogRecorg;
 
 
-    public boolean isLastLogRecordContains(String ... partsOfStringsWeAreLooking) {
+
+    public boolean doesLastLogRecordContain(String ... partsOfStringsWeAreLooking) {
 
 
         boolean hasAllSubStrings =true;

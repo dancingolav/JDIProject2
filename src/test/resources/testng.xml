@@ -3,7 +3,7 @@
 
 
 
-<suite name="TestAll"  parallel="classes" thread-count="2">
+<suite name="TestAll"  parallel="methods" thread-count="2">
 
     <test name="LoginTest">
         <classes>
